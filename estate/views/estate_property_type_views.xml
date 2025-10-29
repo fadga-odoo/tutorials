@@ -28,7 +28,7 @@
         </field>
     </record>
 
-    <record id="view_property_search" model="ir.ui.view">
+    <record id="view_property_types_search" model="ir.ui.view">
         <field name="name">estate.property.type.search</field>
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">

@@ -4,7 +4,7 @@
         <field name="name">estate.property.tag.list</field>
         <field name="model">estate.property.tag</field>
         <field name="arch" type="xml">
-            <list string="Property Tag">
+            <list string="Property Tags">
                 <field name="name"/>
             </list>
         </field>
@@ -21,6 +21,16 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_property_tag_search" model="ir.ui.view">
+        <field name="name">estate.property.tag.search</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <search string="Property Tags">
+                <field name="name"/>
+            </search>
         </field>
     </record>
 

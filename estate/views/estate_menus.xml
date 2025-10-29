@@ -28,7 +28,7 @@
 
     <menuitem
         id="estate_property_tag_menu_action"
-        name="Property Tag"
+        name="Property Tags"
         parent="estate_property_settings"
         action="estate_property_tag_action"/>
 </odoo>

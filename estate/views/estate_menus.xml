@@ -25,4 +25,10 @@
         name="Property Types"
         parent="estate_property_settings"
         action="estate_property_type_action"/>
+
+    <menuitem
+        id="estate_property_tag_menu_action"
+        name="Property Tag"
+        parent="estate_property_settings"
+        action="estate_property_tag_action"/>
 </odoo>

@@ -19,6 +19,15 @@ class EstateProperty(models.Model):
     garden = fields.Boolean("Garden")
     garden_area = fields.Integer("Garden Area (sqm)")
     garden_orientation = fields.Selection(selection=[("north", "North"), ("south", "South"), ("east", "East"), ("west", "West")], string="Garden Orientation")
+
+    @api.onchange("garden")
+    def _onchange_garden(self):
+        if self.garden:
+            self.garden_area = 10
+            self.garden_orientation = "north"
+        else:
+            self.garden_area = None
+            self.garden_orientation = None
     
     # ---------
     # Reference

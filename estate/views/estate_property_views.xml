@@ -24,8 +24,8 @@
         <field name="arch" type="xml">
             <form string="Properties">
                 <header>
-                    <button name="mark_as_sold" type="object" string="Mark property as sold">Mark as Sold</button>
-                    <button name="mark_as_cancelled" type="object" string="Mark property as cancelled">Mark as Cancelled</button>
+                    <button name="mark_as_sold" type="object" string="Mark as Sold" invisible="state == 'sold' or state == 'cancelled'"/>
+                    <button name="mark_as_cancelled" type="object" string="Mark as Cancelled" invisible="state == 'sold' or state == 'cancelled'"/>
                     <field name="state" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold"/>
                 </header>
                 <sheet>

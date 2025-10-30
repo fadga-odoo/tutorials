@@ -9,6 +9,7 @@ class EstatePropertyOffer(models.Model):
         'CHECK(price >= 0)',
         'Price must be greater than 0.',
     )
+    _order = "price desc"
     
     price = fields.Float("Price")
     status = fields.Selection(selection=[

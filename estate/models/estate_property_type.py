@@ -7,6 +7,7 @@ class EstatePropertyType(models.Model):
         'UNIQUE(name)',
         'Property type name must be unique.',
     )
+    _order = "name asc"
 
     name = fields.Char("Name", required=True)
     property_ids = fields.One2many("estate.property", "type_id", string="Properties")

@@ -14,6 +14,7 @@ class EstateProperty(models.Model):
         'CHECK(selling_price >= 0)',
         'Selling price must be greater than 0.',
     )
+    _order = "id desc"
 
     name = fields.Char("Title", required=True)
     description = fields.Text()

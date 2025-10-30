@@ -92,10 +92,10 @@
                 <field name="postcode"/>
                 <field name="expected_price"/>
                 <field name="bedrooms"/>
-                <field name="living_area"/>
+                <field name="living_area" string="Living Area" filter_domain="[('living_area', '>=', self)]"/>
                 <field name="facades"/>
-                <filter string="Available" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
-                <filter string="Postcode" name="groupby_postcode" context="{'group_by': 'postcode'}"/>
+                <filter name="state" string="Available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
+                <filter name="groupby_postcode" string="Postcode" context="{'group_by': 'postcode'}"/>
             </search>
         </field>
     </record>

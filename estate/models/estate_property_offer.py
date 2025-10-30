@@ -5,6 +5,10 @@ from datetime import timedelta
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "Real Estate Property Offer"
+    _check_price = models.Constraint(
+        'CHECK(price >= 0)',
+        'Price must be greater than 0.',
+    )
     
     price = fields.Float("Price")
     status = fields.Selection(selection=[
@@ -48,7 +52,9 @@ class EstatePropertyOffer(models.Model):
     
     def refuse_offer(self):
         for record in self:
-            # Reset property state to "New" (and probably should be "Offer Received")
+            if record.status == "accepted":
+                raise UserError("An accepted offer cannot be refused.")
+            # Reset property state to "New" (and probably should be "Offer Received") if all offers are refused.
             if all(offer.status == "refused" for offer in record.property_id.offer_ids):
                 record.property_id.state = "new"
             record.status = "refused"

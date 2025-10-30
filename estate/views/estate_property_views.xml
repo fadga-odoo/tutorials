@@ -24,8 +24,8 @@
         <field name="arch" type="xml">
             <form string="Properties">
                 <header>
-                    <button name="mark_as_sold" type="object" string="Mark property as sold">Sold</button>
-                    <button name="mark_as_cancelled" type="object" string="Mark property as cancelled">Cancelled</button>
+                    <button name="mark_as_sold" type="object" string="Mark property as sold">Mark as Sold</button>
+                    <button name="mark_as_cancelled" type="object" string="Mark property as cancelled">Mark as Cancelled</button>
                 </header>
                 <sheet>
                     <group>
@@ -39,6 +39,7 @@
 
                     <group>
                         <group col="2">
+                            <field name="state"/>
                             <field name="type_id"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>

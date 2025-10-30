@@ -34,14 +34,14 @@
                             <h1>
                                 <field name="name"/>
                             </h1>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         </div>
                     </group>
 
                     <group>
                         <group col="2">
                             <field name="state"/>
-                            <field name="type_id"/>
+                            <field name="type_id" options="{'no_create': true}"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
                         </group>

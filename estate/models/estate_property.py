@@ -28,6 +28,12 @@ class EstateProperty(models.Model):
         else:
             self.garden_area = None
             self.garden_orientation = None
+
+    def mark_as_sold(self):
+        return True
+    
+    def mark_as_cancelled(self):
+        return True
     
     # ---------
     # Reference

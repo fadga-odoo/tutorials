@@ -5,6 +5,7 @@
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
             <list string="Property Types">
+                <field name="sequence" widget="handle"/> <!-- Enable manual order by dragging the record (~row, card, etc.) -->
                 <field name="name"/>
             </list>
         </field>

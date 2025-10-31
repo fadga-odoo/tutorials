@@ -61,3 +61,14 @@ class EstatePropertyOffer(models.Model):
                 record.property_id.state = "new"
             record.status = "refused"
         return True
+    
+    @api.model
+    def create(self, vals_list):
+        for record in vals_list:
+            # NOTE vals_list is a list of records (formed as dictionary).
+            property_obj = self.env["estate.property"].browse(record.get("property_id"))
+            if property_obj.offer_ids and record.get("price") <= max(property_obj.offer_ids.mapped("price")):
+                raise UserError("You cannot crate an offer lower than or equal to an existing offer.")
+        
+        property_obj.state = "offer_received"
+        return super().create(vals_list)

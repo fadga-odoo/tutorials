@@ -65,7 +65,8 @@ class EstatePropertyOffer(models.Model):
     @api.model
     def create(self, vals_list):
         for record in vals_list:
-            # NOTE vals_list is a list of records (formed as dictionary).
+            # NOTE vals_list is a list of new records (formed as dictionary).
+            # NOTE self is the model (not a recordset), denoted by @api.model
             property_obj = self.env["estate.property"].browse(record.get("property_id"))
             if property_obj.offer_ids and record.get("price") <= max(property_obj.offer_ids.mapped("price")):
                 raise UserError("You cannot crate an offer lower than or equal to an existing offer.")

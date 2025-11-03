@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_header_property">
+        <div>
+            <h1>My Logo</h1>
+            <hr/>
+            <div>
+                <span>PT Awokwokawok</span>
+            </div>
+            <div>
+                <span>150 Biomedical Campus BSD</span>
+            </div>
+            <div>
+                <span>Tangerang Selatan, Banten</span>
+            </div>
+            <div>
+                <span>Indonesia</span>
+            </div>
+        </div>
+    </template>
+</odoo>

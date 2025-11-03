@@ -5,26 +5,13 @@
             <t t-foreach="docs" t-as="property">
                 <t t-call="web.external_layout">
                     <header>
-                        <h1>My Logo</h1>
-                        <hr/>
-                        <div>
-                            <span>MyCompany Inc.</span>
-                        </div>
-                        <div>
-                            <span>150 Biomedical Campus BSD</span>
-                        </div>
-                        <div>
-                            <span>Tangerang Selatan, Banten</span>
-                        </div>
-                        <div>
-                            <span>Indonesia</span>
-                        </div>
+                        <t t-call="estate.report_header_property"/>
                     </header>
-                    <div>
+                    <main>
                         <t t-call="estate.property_offers_template">
-                            <t t-set="property" t-value="property"/>
+                            <t t-set="property" t-value="property"/> <!-- By doing this, we already define a local variable inside the scope, and no need to redefine the variable in the subtemplate -->
                         </t>
-                    </div>
+                    </main>
                 </t>
             </t>
         </t>

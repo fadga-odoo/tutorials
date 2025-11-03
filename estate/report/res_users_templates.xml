@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_res_users">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="user">
+                <t t-call="web.external_layout">
+                    <header>
+                        <t t-call="estate.report_header_property"/>
+                    </header>
+                    <main>
+                        <t t-set="properties" t-value="user.mapped('property_ids')"/>
+                        <div t-foreach="properties" t-as="property">
+                            <t t-call="estate.property_offers_template">
+                                <t t-set="property" t-value="property"/>
+                            </t>
+                        </div>
+                    </main>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -13,6 +13,7 @@
         "views/estate_property_tag_views.xml",
         "views/estate_menus.xml",
         "report/estate_property_reports.xml",
+        "report/estate_property_offers_template.xml",
         "report/estate_property_templates.xml",
         "security/ir.model.access.csv",
     ],

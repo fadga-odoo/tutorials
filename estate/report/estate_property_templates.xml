@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="report_property_offers">
-        <t t-foreach="docs" t-as="property">
-            <t t-call="web.html_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="property">
                 <t t-call="web.external_layout">
-                    <div class="page">
-                        <h2>
-                            <span t-field="property.name"/>
-                        </h2>
+                    <header>
+                        <h1>My Logo</h1>
+                        <hr/>
                         <div>
-                            <strong>Expected Price: </strong>
-                            <span t-field="property.expected_price"/>
+                            <span>MyCompany Inc.</span>
                         </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-set="offers" t-value="property.mapped('offer_ids')"/>
-                                <tr t-foreach="offers" t-as="offer">
-                                    <td>
-                                        <span t-field="offer.price"/>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div>
+                            <span>150 Biomedical Campus BSD</span>
+                        </div>
+                        <div>
+                            <span>Tangerang Selatan, Banten</span>
+                        </div>
+                        <div>
+                            <span>Indonesia</span>
+                        </div>
+                    </header>
+                    <div>
+                        <t t-call="estate.property_offers_template">
+                            <t t-set="property" t-value="property"/>
+                        </t>
                     </div>
                 </t>
             </t>

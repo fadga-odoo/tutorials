@@ -2,11 +2,11 @@
 <odoo>
     <template id="report_property_offers">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="property">
-                <t t-call="web.external_layout">
-                    <header>
-                        <t t-call="estate.report_header_property"/>
-                    </header>
+            <t t-call="web.external_layout">
+                <header>
+                    <t t-call="estate.report_header_property"/>
+                </header>
+                <t t-foreach="docs" t-as="property">
                     <main>
                         <t t-call="estate.property_offers_template">
                             <t t-set="property" t-value="property"/> <!-- By doing this, we already define a local variable inside the scope, and no need to redefine the variable in the subtemplate -->

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Required arguments:
+        - property (EstateProperty)
+        -->
     <template id="property_offers_template">
         <div class="page">
             <h2>
@@ -16,6 +19,11 @@
             <div>
                 <strong>Status: </strong>
                 <span t-field="property.state"/>
+            </div>
+            <div>
+                <t t-if="property.state == 'sold'">
+                    <p>An invoice has been created.</p>
+                </t>
             </div>
             <table class="table">
                 <thead>

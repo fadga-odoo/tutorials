@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- <div class="col" t-if="o.delivery_date" name="delivery_date">
+        <strong>Delivery Date</strong>
+        <div t-field="o.delivery_date">2023-09-25</div>
+    </div> -->
+
+    <template id="report_invoice_document_salesperson" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//div[@id='informations']/div[@name='delivery_date']" position="after">
+            <div class="col">
+                <strong>Salesperson</strong>
+                <div t-field="o.invoice_user_id"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='right-elements']" position="inside">
+            <div class="mt-5">
+                Sign here,
+                <div class="mt-5 pt-5">
+                    <hr/>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

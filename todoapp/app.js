@@ -1,4 +1,4 @@
-const { Component, mount, xml, useRef, onMounted } = owl;
+const { Component, mount, xml, useRef, onMounted, useState } = owl;
 
 class Task extends Component {
     static template = xml`
@@ -31,28 +31,22 @@ class Root extends Component {
     onMounted(() => inputRef.el.focus()); // Use inputRef.el to access the tag/element, then call focus() method
   }
   
-  tasks = [
-    {
-      id: 1,
-      text: "buy milk",
-      isCompleted: true,
-    },
-    {
-      id: 2,
-      text: "clean house",
-      isCompleted: false,
-    }
-  ];
+  nextId = 1;
+  tasks = useState([]);
 
-  addTask(event) {
-    if (event.keyCode === 13) {
-      /**
-       * This is how we fetch user input.
-       * KeyboardEvent (event) will be sent to the browser and user input is stored in event.target.value.
-       */
-      const text = event.target.value.trim();
-      event.target.value = "";
-      console.log('adding task', text);
+  addTask(ev) {
+    // 13 is keycode for ENTER
+    if (ev.keyCode === 13) {
+      const text = ev.target.value.trim();
+      ev.target.value = "";
+      if (text) {
+          const newTask = {
+              id: this.nextId++,
+              text: text,
+              isCompleted: false,
+          };
+          this.tasks.push(newTask);
+      }
     }
   }
 }

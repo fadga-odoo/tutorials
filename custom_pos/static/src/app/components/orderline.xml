@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//li[hasclass('orderline')]" position="inside">
+            <div class="delete-line">
+                <button class="m-2 p-2 border-0 btn btn-outline-danger rounder" t-on-click="deleteLine">
+                    <i class="fa fa-trash-o" style="font-size: 1em;" title="Delete Line"/>
+                </button>
+            </div>
+        </xpath>
+    </t>
+</templates>

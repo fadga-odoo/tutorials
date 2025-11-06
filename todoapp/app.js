@@ -27,8 +27,8 @@ class Root extends Component {
   static components = { Task };
 
   setup() {
-    const inputRef = useRef("add-input");
-    onMounted(() => inputRef.el.focus());
+    const inputRef = useRef("add-input"); // Fetch a reference object (Ref from Owl) to a tag/element (denoted by t-ref)
+    onMounted(() => inputRef.el.focus()); // Use inputRef.el to access the tag/element, then call focus() method
   }
   
   tasks = [

@@ -2,11 +2,20 @@ const { Component, mount, xml, useRef, onMounted, useState } = owl;
 
 class Task extends Component {
     static template = xml`
-    <div class="task-container" t-att-class="props.task.isCompleted ? 'done' : ''">
-        <input type="checkbox" t-att-checked="props.task.isCompleted"/>
+    <div class="task" t-att-class="props.task.isCompleted ? 'done' : ''">
+        <input type="checkbox" t-att-checked="props.task.isCompleted" t-on-click="toggleTask"/>
         <span><t t-esc="props.task.text"/></span>
+        <span class="delete" t-on-click="deleteTask">🗑</span>
     </div>`;
-    static props = ["task"]; // Used inside the tag: <Task taskItem="value">, meaning that we assign "value" to taskItem variable (property) within the scope (accessed by props.taskItem).
+    static props = ["task", "onDelete"]; // Used inside the tag: <Task taskItem="value">, meaning that we assign "value" to taskItem variable (property) within the scope (accessed by props.taskItem).
+
+    toggleTask() {
+      this.props.task.isCompleted = !this.props.task.isCompleted
+    }
+
+    deleteTask() {
+      this.props.onDelete(this.props.task);
+    }
 }
 
 class Root extends Component {
@@ -20,7 +29,7 @@ class Root extends Component {
       <input placeholder="Enter a new task" t-on-keyup="addTask" t-ref="add-input"/>
       <div class="task-list">
           <t t-foreach="tasks" t-as="task" t-key="task.id">
-              <Task task="task"/>
+              <Task task="task" onDelete.bind="deleteTask"/>
           </t>
       </div>
     </div>`;
@@ -40,14 +49,19 @@ class Root extends Component {
       const text = ev.target.value.trim();
       ev.target.value = "";
       if (text) {
-          const newTask = {
-              id: this.nextId++,
-              text: text,
-              isCompleted: false,
-          };
-          this.tasks.push(newTask);
+        const newTask = {
+            id: this.nextId++,
+            text: text,
+            isCompleted: false,
+        };
+        this.tasks.push(newTask);
       }
     }
+  }
+
+  deleteTask(task) {
+    const index = this.tasks.findIndex(t => t.id === task.id);
+    this.tasks.splice(index, 1);
   }
 }
 

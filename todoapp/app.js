@@ -2,11 +2,11 @@ const { Component, mount, xml, useState } = owl;
 
 class Task extends Component {
     static template = xml`
-    <div class="task-container" t-att-class="props.tasky.isCompleted ? 'done' : ''">
-        <input type="checkbox" t-att-checked="props.tasky.isCompleted"/>
-        <span><t t-esc="props.tasky.text"/></span>
+    <div class="task-container" t-att-class="props.task.isCompleted ? 'done' : ''">
+        <input type="checkbox" t-att-checked="props.task.isCompleted"/>
+        <span><t t-esc="props.task.text"/></span>
     </div>`;
-    static props = ["tasky"]; // Used inside the tag: <Task taskItem="value">, meaning that we assign "value" to taskItem variable within the scope.
+    static props = ["task"]; // Used inside the tag: <Task taskItem="value">, meaning that we assign "value" to taskItem variable within the scope (accessed by props.taskItem).
 }
 
 class Root extends Component {
@@ -17,8 +17,8 @@ class Root extends Component {
    */
   static template = xml`
     <div class="task-list">
-        <t t-foreach="tasks" t-as="taskItem" t-key="taskItem.id">
-            <Task tasky="taskItem"/>
+        <t t-foreach="tasks" t-as="task" t-key="task.id">
+            <Task task="task"/>
         </t>
     </div>`;
   static components = { Task };

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="order_receipt_template">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt')]" position="inside">
+            <div class="mt-5 text-center small text-muted">
+                <i t-esc="order.config.congratulatory_text || 'Thank you for your order, have a nice day!'"/>
+            </div>
+        </xpath>
+    </t>
+</templates>

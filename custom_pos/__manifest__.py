@@ -6,6 +6,9 @@
         "base",
         "point_of_sale",
     ],
+    "data": [
+        "views/pos_config_view.xml"
+    ],
     "assets": {
         'point_of_sale._assets_pos': [
             "custom_pos/static/src/**/*",

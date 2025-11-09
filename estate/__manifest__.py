@@ -19,8 +19,9 @@
         "report/res_users_templates.xml",
         "report/estate_property_templates.xml",
         "security/ir.model.access.csv",
+        "security/estate_security.xml"
     ],
-    "category": "Tutorials",
+    "category": "Real Estate",
     "installable": True,
     "application": True,
     "author": "Dariel"
